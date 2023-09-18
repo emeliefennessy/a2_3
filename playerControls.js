@@ -57,10 +57,15 @@ audioElement.addEventListener("canplay", () => {
 
 // when the media finishes we want to make sure that play icon switches back over from pause to indicate that the user can restart playback
 audioElement.addEventListener("ended", () => {
-  playButton.style.backgroundImage = src="./play.svg";
+  playButton.style.backgroundImage = 'url("./play.svg")'; 
 });
 
 /* PLAY/PAUSE */
+
+function playPause() {
+  console.log("playPause function called");
+  console.log("audioElement.paused:", audioElement.paused);
+  console.log("audioElement.ended:", audioElement.ended);
 
 // we can use the .play() and .pause() methods on our media element to play and pause playback - because I want this to be triggered by 
 // two different events (see below) i'm going to write it as a seperate function 
@@ -68,6 +73,7 @@ audioElement.addEventListener("ended", () => {
 // ever want use .pause() (as pausing an already paused audio doesn't really make sense) 
 // the same goes if the media is paused or stopped i only want use .play()
 function playPause(){
+  
   // the following if statement checks to see if the media is currently paused OR if the media has finshed playing - || inside of an if 
   // statement like this is how we write an OR conditional, if either of these things are true it'll trigger the block of code
   // the reason we check for both is that when the audio finishes playing it'll be in an ended state not a paused state
@@ -81,7 +87,7 @@ function playPause(){
     // if it is already playing make it pause
     audioElement.pause();
     // then make sure the icon on the button changes to play indicating what it does if you click it
-    playButton.style.backgroundImage = src="./play.svg";
+    playButton.style.backgroundImage = 'url("./play.svg")'; 
     document.getElementById("audioPlayOverlay").style.display = "block"
   }
 }

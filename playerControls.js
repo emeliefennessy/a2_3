@@ -75,7 +75,7 @@ function playPause(){
     // if it isn't already playing make it play
     audioElement.play();
     // then make sure the icon on the button changes to pause indicating what it does if you click it
-    playButton.style.backgroundImage = src="./pause.svg";
+    playButton.style.backgroundImage = 'url("./pause.svg")';
     document.getElementById("audioPlayOverlay").style.display = "none"
   } else {
     // if it is already playing make it pause
@@ -164,11 +164,11 @@ function muteUnmute() {
 if(audioElement.muted){
   /*set audio to unmute*/
   audioElement.muted = false; 
-  muteButton.style.backgroundImage = src="./mute.svg"
+  muteButton.style.backgroundImage = 'url("./mute.svg")'; 
 }else{
 /*set audio to mute*/
   audioElement.muted = true; 
-  muteButton.style.backgroundImage = src="./unmute.svg"
+  muteButton.style.backgroundImage = 'url("./unmute.svg")'; 
 
 }
 

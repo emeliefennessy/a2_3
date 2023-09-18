@@ -1,0 +1,247 @@
+*{
+  box-sizing: border-box;
+  background-origin: border-box;
+  margin: 0;
+}
+
+
+
+body {
+  background: rgb(3, 69, 88);
+}
+
+section {
+  display: block;
+  width: 1330px;
+  height: 140px;
+  background: rgb(202, 25, 137);
+  margin-left: 70px;
+}
+/* added a header to add the title and other text, help stucture the website and provide information to the users. Made it the same colours as the image the match */
+
+#soundpic {
+  margin-left: 500px;
+}
+
+
+p {
+  width: 70%; /* == 500px * .5 = 200px */
+  height: 20%; /* == 160px * .25 = 40px */
+  margin: 5%; /* == 400px * .05 = 20px */
+  padding: 2%; /* == 400px * .05 = 20px */
+  margin-left: 100px;
+  background: rgb(104, 59, 182);
+
+/* I made this its own purple section to show that it is a subsection, the genre of the current page/music below */
+}
+
+
+
+h1{ 
+  width: 24%; /* == 400px * .5 = 200px */
+  height: 30%; /* == 160px * .25 = 40px */
+  margin: 5%; 
+  padding: 10%; /* Add some padding for spacing */
+  margin-top: 10px;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 28px; 
+  letter-spacing: 4px; /* Add letter spacing for readability */
+  border-bottom: 3px solid #19036d; /* Add a border for separation */
+  color: #fff; /* Text colour for contrast */
+  margin-left: 20px;
+  margin-right: 30px;
+  
+}
+ 
+
+
+h2{
+  width: 10%; /* == 400px * .5 = 200px */
+  height: 30%; /* == 160px * .25 = 40px */
+  margin: 5%; /* == 400px * .05 = 20px */
+  padding: 10%; /* == 400px * .05 = 20px */
+  background: rgb(103, 241, 254);
+  margin-left: 10px;
+  margin-right: 50px;
+  border-radius: 8px; /* Add rounded corners */
+  cursor: pointer; /* Change cursor to pointer to indicate interactivity */
+  transition: background-color 0.3s ease; /* Add a smooth colour transition effect (I used mdn website to figure out how to do this)*/
+
+}     
+h2:hover {
+  background: #6a9ef7; /* Change the background colour on hover (mdn)*/
+}
+
+h3 {
+  padding: 10px;
+  margin: 0; 
+  background: rgb(104, 59, 182);
+  color: #fff; 
+}
+
+
+/* Basis for colour palette comes from 1bit Monitor Glow Palette by Polyducks */
+/* https://lospec.com/palette-list/1bit-monitor-glow */
+/* you're welcome to change the colours if you want or any of the other general page style */
+:root{
+  --col-01:hsl(312, 78%, 25%);
+  --col-02:#c86da5;
+  --col-03:#030377;
+  --col-04:#b6e878;
+  --col-05:#bcbdbc;
+  --col-06:#6f6f6f;
+  --border: 1px solid var(--col-02);
+  
+  
+}
+
+.audio-player-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+/* becuase I want to overlay the play icon on the audio they need to be in their own wrapper */
+.audio-element-wrapper{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+#audioElement{
+  width: 100%;
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+
+.image-container {
+  position: relative; /* Make sure the container is a reference point for absolute positioning */
+  display: inline-block; /* Keeps the container size based on its content */
+}
+
+#heroImage{
+  width: 100%;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  margin-top: 30px;
+
+}
+
+.image-text {
+  position: absolute; /* Position the text relative to the container */
+  top: 890px; 
+  right: 905px; 
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for better readability */
+  color: #fff; 
+  padding: 10px; 
+  border-radius: 5px; /* Adding rounded corners to the text box */
+  font-size: 18px; 
+}
+
+
+#soundpic{
+  margin-top: -140px;" 
+  margin-left: 20px;" 
+
+}
+
+#audioPlayOverlay{
+  width: 8rem;
+  height: 8rem;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: center;
+  align-self: center;
+  opacity: 0.6;
+  pointer-events: none;
+  display: none ;
+}
+
+.audio-controls-wrapper{
+  display: flex;
+  justify-content: center;
+}
+/* this overwrites the above display:flex - something which is then undone when the JS loads */
+#controlsWrapper{
+  display: none;
+}
+
+.audio-control-button{
+  width: 2rem;
+  height: 2rem;
+  padding: .1rem;
+  border: none;
+  cursor: pointer;
+}
+.audio-control-button:hover{
+  background-color: var(--col-05);
+}
+.audio-control-button:active{
+  background-color: var(--col-06);
+}
+.button-icon{
+  pointer-events: none;
+}
+
+#playButton{
+  background-image: url('./play.svg');
+}
+
+#muteButton{
+  background-image: url('./mute.svg');
+}
+
+#loopButton {
+background-image: url('./loop.svg');
+font-size: 6px; 
+}
+
+
+.audio-progress-bar{
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: 2rem;
+  flex-grow: 1;
+  cursor: pointer;
+  background-color: var(--col-01);
+  box-shadow: 0 1px 2px var(--col-02) inset;
+}
+::-moz-progress-bar {
+  background-color: var(--col-02);
+}
+
+::-webkit-progress-bar {
+  background-color: var(--col-01);
+  box-shadow: 0 1px 2px var(--col-02) inset;
+}
+::-webkit-progress-value {
+  background-color: var(--col-02);
+}
+
+.timeline-loading{
+  background-image: -moz-repeating-linear-gradient(45deg, var(--col-03) 0% 2%, transparent 2% 4%, red 4%);
+  background-size: 200% 100%;
+  animation: loadingAnimation 4s linear infinite;
+}
+
+@keyframes loadingAnimation {
+  100%{
+    background-position: 50% 0%;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -57,7 +57,7 @@ audioElement.addEventListener("canplay", () => {
 
 // when the media finishes we want to make sure that play icon switches back over from pause to indicate that the user can restart playback
 audioElement.addEventListener("ended", () => {
-  playButton.style.backgroundImage = "url('./icons/play.svg')";
+  playButton.style.backgroundImage = src="./play.svg";
 });
 
 /* PLAY/PAUSE */
@@ -75,13 +75,13 @@ function playPause(){
     // if it isn't already playing make it play
     audioElement.play();
     // then make sure the icon on the button changes to pause indicating what it does if you click it
-    playButton.style.backgroundImage = "url('./icons/pause.svg')";
+    playButton.style.backgroundImage = src="./pause.svg";
     document.getElementById("audioPlayOverlay").style.display = "none"
   } else {
     // if it is already playing make it pause
     audioElement.pause();
     // then make sure the icon on the button changes to play indicating what it does if you click it
-    playButton.style.backgroundImage = "url('./icons/play.svg')";
+    playButton.style.backgroundImage = src="./play.svg";
     document.getElementById("audioPlayOverlay").style.display = "block"
   }
 }
@@ -164,11 +164,11 @@ function muteUnmute() {
 if(audioElement.muted){
   /*set audio to unmute*/
   audioElement.muted = false; 
-  muteButton.style.backgroundImage = "url('./icons/mute.svg')"
+  muteButton.style.backgroundImage = src="./mute.svg"
 }else{
 /*set audio to mute*/
   audioElement.muted = true; 
-  muteButton.style.backgroundImage = "url('./icons/unmute.svg')"
+  muteButton.style.backgroundImage = src="./unmute.svg"
 
 }
 
@@ -181,13 +181,13 @@ muteButton.addEventListener('click',muteUnmute);
 
 /* LOOP BUTTON */
 
-/* I want immediatley to mute the audio and unmute it again */
+/* I want to make it so there is an option to have loop on/off, so if loop was on, the user can listen continuously without having to press play again while they are studying/relaxing */
 
-  // Initialise loop as false (loop is off)
+  /* Initialise loop as false (loop is off as default) */
   let loopEnabled = false;
-  loopButton.style.backgroundImage = "url('./icons/loop.svg')"
+  loopButton.style.backgroundImage = "url('./loop.svg')"
 
-  /* Function to toggle loop on/off */
+  /* Function to toggle loop on/off (I used the mdn website to find toggleloop code, then applied the same code as used for mute function*/
   function toggleLoop() {
       if (loopEnabled) {
           audioElement.removeAttribute("loop");
@@ -201,6 +201,8 @@ muteButton.addEventListener('click',muteUnmute);
           
       }
   }
+
+  /* as there was only one image of the loop symbol, I found it hard to figure out how to show that loop was on or off, so I decided to add a text content so the user knows when loop is on/off*/
 
   // Add a click event listener to the button
   loopButton.addEventListener("click", toggleLoop);
@@ -216,8 +218,7 @@ function logEvent(e){
   console.log(e);
 }
 
- 
- 
+
  
 
 
